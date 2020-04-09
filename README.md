@@ -6,7 +6,7 @@
 
 >1. jupyter lab
 >2. mongodb
->3. python包：pandas,numpy,pymongo,matplotlib,jieba,re,math
+>3. python包：pandas,numpy,pymongo,matplotlib,jieba,re,math,wordcloud,snownlp,os
 >4. excel 2019版
 
 ### 二. 包含功能
@@ -20,5 +20,6 @@
 >8. 推荐可能用到的词
 >9. 搜索任意词，句子，返回那一天
 >10. 制作词云
+>11. 情感分析
 ### 三.参考资料
 >1. 《集体智慧编程》

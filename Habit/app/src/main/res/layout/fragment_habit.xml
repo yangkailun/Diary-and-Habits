@@ -3,21 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.hp.test25.view.QuestionFragment">
+    tools:context="com.example.hp.test25.view.HabitFragment">
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/question_recycler"
+        android:id="@+id/habit_recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
     </android.support.v7.widget.RecyclerView>
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/question_add"
+        android:id="@+id/habit_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_add"
         android:layout_gravity="bottom|center"
+        android:layout_marginBottom="60dp"
+        app:elevation="8dp"/>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/habit_restart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/restart"
+        android:layout_gravity="top|left"
         android:layout_marginBottom="60dp"
         app:elevation="8dp"/>
 

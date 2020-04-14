@@ -7,6 +7,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
 
 import com.example.hp.test25.R;
 import com.example.hp.test25.adapter.ViewPagerAdapter;
@@ -43,11 +45,11 @@ public class MainActivity extends AppCompatActivity{
                         mPager.setCurrentItem(0);
 //                        fab.setVisibility(View.GONE);
                         break;
-                    case R.id.item_budget:
+                    case R.id.item_question:
                         mPager.setCurrentItem(1);
 //                        fab.setVisibility(View.VISIBLE);
                         break;
-                    case R.id.item_change:
+                    case R.id.item_habit:
                         mPager.setCurrentItem(2);
 //                        fab.setVisibility(View.VISIBLE);
                         break;
@@ -88,9 +90,8 @@ public class MainActivity extends AppCompatActivity{
 
         });
 
-        //禁止ViewPager滑动
+//        //禁止ViewPager滑动
 //        mPager.setOnTouchListener(new ViewPager.OnTouchListener(){
-//
 //            @Override
 //            public boolean onTouch(View v, MotionEvent event) {
 //                return true;
@@ -108,7 +109,8 @@ public class MainActivity extends AppCompatActivity{
         adapter.addFragment(new StatisticsFragment());
         //        adapter.addFragment(new BudgetFragment());
         adapter.addFragment(new QuestionFragment());
-        adapter.addFragment(new IncomeExpensesFragment());
+//        adapter.addFragment(new IncomeExpensesFragment());
+        adapter.addFragment(new HabitFragment());
         adapter.addFragment(new ShareFragment());
 
 //        adapter.addFragment(new MeFragment());

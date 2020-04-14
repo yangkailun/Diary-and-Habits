@@ -8,14 +8,14 @@
         />
 
     <item
-        android:id="@+id/item_budget"
+        android:id="@+id/item_question"
         android:icon="@mipmap/ic_question"
         android:title="问题"
         />
     <item
-        android:id="@+id/item_change"
-        android:icon="@mipmap/ic_change"
-        android:title="收支"
+        android:id="@+id/item_habit"
+        android:icon="@mipmap/ic_habit"
+        android:title="习惯"
         />
 
     <item

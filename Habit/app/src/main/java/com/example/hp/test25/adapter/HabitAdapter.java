@@ -1,9 +1,11 @@
 package com.example.hp.test25.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +29,7 @@ import java.util.List;
 public class HabitAdapter extends RecyclerView.Adapter<HabitAdapter.ViewHolder> {
     private Context mContext;
     private List<Habit> mHabitList;
+    private static final String TAG = "HabitAdapter";
 
     static class ViewHolder extends RecyclerView.ViewHolder{
         TextView habitView,finishView;
@@ -56,10 +59,10 @@ public class HabitAdapter extends RecyclerView.Adapter<HabitAdapter.ViewHolder> 
             @Override
             public boolean onLongClick(View v) {
                 new MaterialDialog.Builder(mContext)
-                        .title("删除")
-                        .content("确定删除吗？")
+                        .title("修改/删除")
+                        .content("确定修改/删除吗？")
                         .positiveText("确定")
-                        .negativeText("取消")
+                        .negativeText("修改")
                         .onPositive(new MaterialDialog.SingleButtonCallback() {
                             @Override
                             public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
@@ -73,7 +76,11 @@ public class HabitAdapter extends RecyclerView.Adapter<HabitAdapter.ViewHolder> 
                         .onNegative(new MaterialDialog.SingleButtonCallback() {
                             @Override
                             public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-
+                                int position = holder.getAdapterPosition();
+                                Habit habit = mHabitList.get(position);
+                                habit.setIsFinish(0);
+                                habit.updateAll("id = ?",""+habit.getId());
+                                notifyDataSetChanged();
                             }
                         }).show();
                 return false;
@@ -101,8 +108,13 @@ public class HabitAdapter extends RecyclerView.Adapter<HabitAdapter.ViewHolder> 
         holder.habitView.setText(habit.getHabit());
         if(habit.getIsFinish() == 0){
             holder.finishView.setText("未完成");
+            holder.finishView.setBackgroundColor(Color.parseColor("#00000000"));
+            Log.d(TAG, "onBindViewHolder_if: "+habit.getIsFinish()+" "+position);
+
         }else{
             holder.finishView.setText("完成");
+            holder.finishView.setBackgroundColor(Color.GREEN);
+            Log.d(TAG, "onBindViewHolder: "+habit.getIsFinish()+" "+position);
         }
     }
 

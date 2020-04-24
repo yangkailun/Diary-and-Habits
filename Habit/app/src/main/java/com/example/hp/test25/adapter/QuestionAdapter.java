@@ -17,6 +17,7 @@ import com.example.hp.test25.object.Question;
 
 import org.litepal.crud.DataSupport;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -39,6 +40,7 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
 
     }
     public QuestionAdapter(List<Question> questions){
+        Collections.shuffle(questions);
         mQuestionList = questions;
     }
 

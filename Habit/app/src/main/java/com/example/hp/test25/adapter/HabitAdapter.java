@@ -111,10 +111,14 @@ public class HabitAdapter extends RecyclerView.Adapter<HabitAdapter.ViewHolder> 
             holder.finishView.setBackgroundColor(Color.parseColor("#00000000"));
             Log.d(TAG, "onBindViewHolder_if: "+habit.getIsFinish()+" "+position);
 
-        }else{
+        }else if (habit.getIsFinish() == 1){
             holder.finishView.setText("完成");
             holder.finishView.setBackgroundColor(Color.GREEN);
             Log.d(TAG, "onBindViewHolder: "+habit.getIsFinish()+" "+position);
+        }else {
+            holder.finishView.setText("两天未完成");
+            holder.finishView.setBackgroundColor(Color.parseColor("#00000000"));
+            Log.d(TAG, "onBindViewHolder_if: "+habit.getIsFinish()+" "+position);
         }
     }
 

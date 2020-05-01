@@ -79,9 +79,15 @@ public class HabitFragment extends Fragment {
             @Override
             public void onClick(View v){
                 //轻松把所有的isFinish设置为初始值0
+                //现在我不想简单的把所有的重置为0，而是想把为1的重置为0，而不0的重置为2.
                 Habit habit = new Habit();
+                habit.setIsFinish(2);
+                habit.updateAll("isFinish = ?","0");
                 habit.setToDefault("isFinish");
-                habit.updateAll();
+                habit.updateAll("isFinish = ?","1");
+
+//                habit.setToDefault("isFinish");
+//                habit.updateAll();
                 habitList.clear();//必须先清空，再添加，这个List不能变
                 habitList.addAll(DataSupport.findAll(Habit.class));//不加这一句，只是更新数据库，下面的一句不会立即刷新页面
                 adapter.notifyDataSetChanged();

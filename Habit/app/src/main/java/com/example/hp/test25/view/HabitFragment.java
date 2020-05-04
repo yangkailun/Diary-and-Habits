@@ -81,6 +81,15 @@ public class HabitFragment extends Fragment {
                 //轻松把所有的isFinish设置为初始值0
                 //现在我不想简单的把所有的重置为0，而是想把为1的重置为0，而不0的重置为2.
                 Habit habit = new Habit();
+                List<Habit> habits = DataSupport.where("isFinish > ?", "1").find(Habit.class);
+                for (Habit habit1 : habits){
+                    int habit_id = habit1.getId();
+                    int habit_isFinish = habit1.getIsFinish();
+                    habit_isFinish = habit_isFinish + 1;
+                    Habit habit2 = new Habit();
+                    habit2.setIsFinish(habit_isFinish);
+                    habit2.updateAll("id = ?",""+habit_id);
+                }
                 habit.setIsFinish(2);
                 habit.updateAll("isFinish = ?","0");
                 habit.setToDefault("isFinish");
